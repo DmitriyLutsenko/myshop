@@ -1,0 +1,2 @@
+@extends('mytheme.layouts.template')
+
