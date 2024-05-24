@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Slider extends Model
 {
+    protected $fillable = [
+      'name',
+      'code',
+      'description',
+      'is_active',
+    ];
+    
     public function slides()
     {
       return $this->hasMany(Slide::class);

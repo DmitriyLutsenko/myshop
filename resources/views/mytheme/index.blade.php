@@ -11,7 +11,7 @@
 @section('content')
 
     <!-- Hero/Intro Slider Start -->
-    <x-slider />
+    <x-slider :sliderid='1'/>
     <!-- Hero/Intro Slider End -->
     
     <!-- Banner Area Start -->

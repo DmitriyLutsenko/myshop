@@ -3,17 +3,20 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-
+use App\Models\Slider as SliderModel;
 class Slider extends Component
 {
+
+    public $sliderid;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($sliderid)
     {
-        //
+        $this->sliderid = $sliderid;
     }
 
     /**
@@ -23,6 +26,17 @@ class Slider extends Component
      */
     public function render()
     {
-        return view('components.slider');
+
+        $slider = SliderModel::where(
+            [
+                'id' => $this->sliderid,
+                'status' => 1
+            ])
+            ->with(['slides' => function($query) {
+                $query->where(['status'=>'1']);
+            }])
+            ->get()->toArray();
+ 
+        return view('components.slider', ['slider'=>$slider]);
     }
 }
