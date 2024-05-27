@@ -12,7 +12,6 @@ class Category extends Model
         'code',
         'status',
         'h1',
-        'description',
         'seotitle',
         'seodescription',
         'category_id',
