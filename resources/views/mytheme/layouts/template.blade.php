@@ -126,6 +126,10 @@
             </div>
             <!-- Header action area end -->
             <!-- header navigation area start -->
+
+            <x-menu-component :menuid=1/>
+
+
             <div class="header-nav-area d-none d-lg-block sticky-nav">
                 <div class="container">
                     <div class="header-nav">
