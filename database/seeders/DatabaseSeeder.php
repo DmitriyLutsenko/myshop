@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             Catalog::class,
             Product::class,
+            ProductParameterSeeder::class,
         ]);
     }
 }
