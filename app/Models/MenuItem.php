@@ -10,6 +10,7 @@ class MenuItem extends Model
         'name',
         'code',
         'priority',
+        'isCatalogMenu',
         'link',
         'status',
         'items',
