@@ -17,9 +17,10 @@ Route::get('/', function () {
     return view('mytheme.index');
 });
 
-Auth::routes();
+
 Route::group(['middleware' => 'role:administrator'], function() {
     Route::get('/dashboard', function() {
         return 'Добро пожаловать, Веб-разработчик';
     });
 });
+Auth::routes();

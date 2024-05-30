@@ -46,7 +46,10 @@
                                     @if (Route::has('login'))
                                         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                                             @auth
-                                                <a href="{{ url('/') }}">Home</a>
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                    <button type="submit">Выйти</button>
+                                                </form>
                                             @else
                                                 <a href="{{ route('login') }}">Log in</a>
 
@@ -56,7 +59,7 @@
                                             @endauth
                                         </div>
                                     @endif
-                                
+
                                     </li>
                                 </ul>
                             </div>
@@ -144,7 +147,7 @@
             <!-- header navigation area start -->
 
             <x-menu-component :menuid=1/>
-            
+
             <!-- header navigation area end -->
             <div class="mobile-search-box d-lg-none">
                 <div class="container">
