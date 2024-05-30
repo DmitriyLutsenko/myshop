@@ -29,7 +29,10 @@ class MenuComponent extends Component
             [
                 'id' => $this->menuid,
             ])
-            ->with(['items'])
+            ->with(['items' => function($query) {
+                $query->where('status', 1)
+                ->orderBy('priority', 'asc');
+            }])
             ->get()->toArray();
  
 

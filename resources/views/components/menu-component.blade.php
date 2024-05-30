@@ -11,7 +11,7 @@
                                 {{ $item['name'] }} <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="sub-menu">
-                              @foreach(json_decode($item['items']) as $child)
+                                @foreach(json_decode($item['items']) as $child)
                                 <li><a href="{{$child->link}}">{{$child->name}}</a></li>
                                 @endforeach
                             </ul>
