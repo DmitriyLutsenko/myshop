@@ -41,7 +41,23 @@
                                 <ul>
                                     <li><a href="tel:0123456789"><i class="fa fa-phone"></i> +012 3456 789</a></li>
                                     <li><a href="mailto:demo@example.com"><i class="fa fa-envelope-o"></i> demo@example.com</a></li>
-                                    <li><a href="my-account.html"><i class="fa fa-user"></i> Account</a></li>
+                                    <li>
+
+                                    @if (Route::has('login'))
+                                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                                            @auth
+                                                <a href="{{ url('/') }}">Home</a>
+                                            @else
+                                                <a href="{{ route('login') }}">Log in</a>
+
+                                                @if (Route::has('register'))
+                                                    <a href="{{ route('register') }}">Register</a>
+                                                @endif
+                                            @endauth
+                                        </div>
+                                    @endif
+                                
+                                    </li>
                                 </ul>
                             </div>
                         </div>
