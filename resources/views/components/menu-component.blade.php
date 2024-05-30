@@ -23,7 +23,6 @@
                             </a>
                         </li>
                         @endif
-                     
                 @endforeach
             </ul>
             </div>
