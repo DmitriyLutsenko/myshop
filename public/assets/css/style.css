@@ -1942,7 +1942,7 @@ body.offcanvas-open {
   border-radius: 18px;
   width: 215px;
   height: 61px;
-  background-color: transparent;
+  background-color: #266bf9;
 }
 @media only screen and (max-width: 575px) {
   .btn-primary {
@@ -1957,7 +1957,7 @@ body.offcanvas-open {
   background: #266bf9;
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
-  border-color: #266bf9;
+  border-color: #0941b1;
 }
 .btn-primary.blog-btn {
   background: #4e4e4e;
@@ -4566,7 +4566,7 @@ body.offcanvas-open {
 }
 
 /*===================================
-    - Breadvrumb  
+    - Breadvrumb
 =================================*/
 .breadcrumb-area {
   background-image: url(../images/about/breadcrunb-bg.webp);

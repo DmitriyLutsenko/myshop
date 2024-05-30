@@ -18,3 +18,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::group(['middleware' => 'role:administrator'], function() {
+    Route::get('/dashboard', function() {
+        return 'Добро пожаловать, Веб-разработчик';
+    });
+});
