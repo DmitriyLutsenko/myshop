@@ -6,14 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
+    protected $table = 'menus';
+
     protected $fillable = [
         'name',
-        'code'
+        'code',
+        'status',
+        'description'
     ];
-
+    
     public function items()
     {
-        return $this->belongsToMany(itemMenu::class);
+        return $this->belongsToMany(MenuItem::class);
     }
-
 }

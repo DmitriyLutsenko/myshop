@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemMenusMenusTable extends Migration
+class CreateMenusMenuItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateItemMenusMenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_menus', function (Blueprint $table) {
+        Schema::create('menu_menu_item', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('menu_id');
-            $table->unsignedBigInteger('item_id');
+            $table->unsignedBigInteger('menu_item_id');
             $table->foreign('menu_id')->references('id')->on('menus');
-            $table->foreign('item_id')->references('id')->on('menuitems');
-            $table->unique(['menu_id', 'item_id']);
+            $table->foreign('menu_item_id')->references('id')->on('menu_items');
+            $table->unique(['menu_id', 'menu_item_id']);
         });
     }
 
@@ -30,6 +30,6 @@ class CreateItemMenusMenusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_menus');
+        Schema::dropIfExists('menu_menu_item');
     }
 }
