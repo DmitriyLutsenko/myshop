@@ -1,28 +1,5 @@
 @extends('mytheme.layouts.template')
 
-@if(isset($catalog))
-
-    @if(strlen(trim($catalog['seotitle'])) > 0)
-        @section('title')
-            {{ $catalog['seotitle'] }}
-        @endsection
-    @else 
-        @section('title')
-            {{ $catalog['title'] }} | Магазин компьютерной техники
-        @endsection
-    @endif
-
-    @if(strlen(trim($catalog['seodescription'])) > 0)
-        @section('description')
-        {{ $catalog['seodescription'] }}
-        @endsection
-    @else
-        @section('description')
-        Страница {{ $catalog['title'] }}. Заказать технику на нашем сайте просто.
-        @endsection
-    @endif
-
-@else
     @section('title')
     Каталог | Магазин компьютерной техники
     @endsection
@@ -30,14 +7,6 @@
     @section('description')
     Каталог магазина компьютерной техники.
     @endsection
-@endif
-
-
-@section('requires')
-
-    @include('mytheme.product.components.modal')
-
-@endsection
 
 @section('content')
 
@@ -45,11 +14,7 @@
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-12 text-center">
-                @if( strlen(trim(($catalog['h1']))) > 0)
-                <h2 class="breadcrumb-title">{{ $catalog['h1'] }}</h2>
-                @else
-                <h2 class="breadcrumb-title">{{ $catalog['title'] }}</h2>
-                @endif
+                <h2 class="breadcrumb-title">Каталог компьютерной техники</h2>
                 <!-- breadcrumb-list start -->
                 <ul class="breadcrumb-list">
                     <li class="breadcrumb-item"><a href="/">Главная</a></li>

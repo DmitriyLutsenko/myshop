@@ -25,5 +25,5 @@ Route::group(['middleware' => 'role:administrator'], function() {
 });
 
 Route::get('/catalog/{code}', [App\Http\Controllers\CategoryController::class, 'categoryByCode'])->name('catalog.detail');
-
+Route::get('/catalog', [App\Http\Controllers\CategoryController::class, 'category'])->name('category');
 Auth::routes();
