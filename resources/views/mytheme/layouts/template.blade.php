@@ -41,25 +41,30 @@
                                 <ul>
                                     <li><a href="tel:0123456789"><i class="fa fa-phone"></i> +012 3456 789</a></li>
                                     <li><a href="mailto:demo@example.com"><i class="fa fa-envelope-o"></i> demo@example.com</a></li>
-                                    <li>
-
+                                    
+                                    <li class="auth-nav dropdown">
                                     @if (Route::has('login'))
-                                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                                            @auth
+                                        @auth
+                                        <a href="#"><i class="fa fa-user-o"></i>{{Auth::user()->name}}</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">Профиль</a></li>
+                                            <li>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
-                                                    <button type="submit">Выйти</button>
+                                                    <button class="button-exit" type="submit">Выйти</button>
                                                 </form>
-                                            @else
-                                                <a href="{{ route('login') }}">Log in</a>
-
-                                                @if (Route::has('register'))
-                                                    <a href="{{ route('register') }}">Register</a>
-                                                @endif
-                                            @endauth
-                                        </div>
-                                    @endif
-
+                                            </li>
+                                        </ul>
+                                        @else
+                                        <a href="#"><i class="fa fa-user-o"></i>Аккаунт</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{ route('login') }}">Войти</a></li>
+                                            @if (Route::has('register'))
+                                            <li><a href="{{ route('register') }}">Регистрация</a>
+                                             @endif
+                                        </ul>
+                                        @endauth
+                                    @endif    
                                     </li>
                                 </ul>
                             </div>
