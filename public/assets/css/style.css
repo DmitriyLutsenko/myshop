@@ -4182,7 +4182,8 @@ body.offcanvas-open {
 .pro-pagination-style li + li {
   margin-left: 10px;
 }
-.pro-pagination-style a {
+.pro-pagination-style a,
+.pro-pagination-style span  {
   font-weight: 400;
   color: #9e9e9e;
   padding: 0;
@@ -4204,7 +4205,8 @@ body.offcanvas-open {
   border-style: solid;
 }
 @media only screen and (max-width: 767px) {
-  .pro-pagination-style a {
+  .pro-pagination-style a,
+  .pro-pagination-style span {
     height: 40px;
     width: 40px;
     line-height: 40px;
@@ -4212,16 +4214,19 @@ body.offcanvas-open {
   }
 }
 @media only screen and (max-width: 767px) {
-  .pro-pagination-style a .fa {
+  .pro-pagination-style a .fa,
+  .pro-pagination-style span .fa {
     font-size: 20px;
   }
 }
-.pro-pagination-style a.active {
+.pro-pagination-style a.active,
+.pro-pagination-style span.active {
   color: #266bf9;
   border-color: #266bf9;
   background: #fff;
 }
-.pro-pagination-style a:hover {
+.pro-pagination-style a:hover,
+.pro-pagination-style span:hover {
   color: #266bf9;
   border-color: #266bf9;
   background: #fff;

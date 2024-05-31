@@ -33,16 +33,13 @@
 @endif
 
 @section('content')
-    <pre>
-        {{ print_r($catalog)}}
-    </pre>
+
     <div class="shop-category-area pt-100px pb-100px">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Shop Top Area Start -->
                         <div class="shop-top-bar d-flex">
-                            <p class="compare-product"> <span>12</span> Product Found of <span>30</span></p>
                             <!-- Left Side End -->
                             <div class="shop-tab nav" role="tablist">
                                 <button class="active" data-bs-target="#shop-grid" data-bs-toggle="tab" aria-selected="true" role="tab">
@@ -83,8 +80,7 @@
                                         <div class="tab-pane fade show active" id="shop-grid" role="tabpanel">
                                             <div class="row mb-n-30px">
 
-                                                @foreach($catalog['products'] as $product)
-
+                                                @foreach($products as $product)
                                                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px">
                                                     <!-- Single Prodect -->
                                                     <div class="product">
@@ -118,12 +114,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @endforeach
                                             </div>
-
-                                            @endforeach
+                                            
 
                                         </div>
                                         <div class="tab-pane fade mb-n-30px" id="shop-list" role="tabpanel">
+                                        @foreach($products as $product)
                                             <div class="shop-list-wrapper mb-30px">
                                                 <div class="row">
                                                     <div class="col-md-5 col-lg-5 col-xl-4 mb-lm-30px">
@@ -142,16 +139,19 @@
                                                     <div class="col-md-7 col-lg-7 col-xl-8">
                                                         <div class="content-desc-wrap">
                                                             <div class="content">
-                                                                <span class="category"><a href="#">Accessories</a></span>
-                                                                <h5 class="title"><a href="single-product.html">Modern Smart Phone</a></h5>
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                                    sed do eiusmodol tempor incididunt ut labore et dolore
-                                                                    magna aliqua. Ut enim ad minim veni quis nostrud
-                                                                    exercitation ullamco laboris </p>
+                                                                @if(!empty($product['categories'][0]))
+                                                                    <span><a href="{{ route('catalog.detail', ['code'=>$product['categories'][0]['code']])}}">{{ $product['categories'][0]['title'] }}</a></span>
+                                                                @endif
+                                                                <h5 class="title"><a href="single-product.html">{{$product['title']}}</a></h5>
+                                                                @if( strlen(trim(($product['description']))) > 0)
+                                                                {!!
+                                                                    $product['description']
+                                                                !!}
+                                                                @endif
                                                             </div>
                                                             <div class="box-inner">
                                                                 <span class="price">
-                                                                <span class="new">$38.50</span>
+                                                                <span class="new">{{$product['price']}}</span>
                                                                 </span>
                                                                 <div class="actions">
                                                                     <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i class="pe-7s-shopbag"></i></button>
@@ -164,26 +164,17 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        @endforeach
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Tab Content Area End -->
-                            <!--  Pagination Area Start -->
                             <div class="pro-pagination-style text-center text-lg-end" data-aos="fade-up" data-aos-delay="200">
                                 <div class="pages">
-                                    <ul>
-                                        <li class="li"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a>
-                                        </li>
-                                        <li class="li"><a class="page-link" href="#">1</a></li>
-                                        <li class="li"><a class="page-link active" href="#">2</a></li>
-                                        <li class="li"><a class="page-link" href="#">3</a></li>
-                                        <li class="li"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
-                                        </li>
-                                    </ul>
+                                    {{ $products->links() }}
                                 </div>
                             </div>
-                            <!--  Pagination Area End -->
                         </div>
                         <!-- Shop Bottom Area End -->
                     </div>
