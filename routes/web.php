@@ -23,4 +23,7 @@ Route::group(['middleware' => 'role:administrator'], function() {
         return 'Добро пожаловать, Веб-разработчик';
     });
 });
+
+Route::get('/catalog/{code}', [App\Http\Controllers\CategoryController::class, 'categoryByCode'])->name('catalog.detail');
+
 Auth::routes();
